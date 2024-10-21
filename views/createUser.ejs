@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1> 
+    <%- include("partials/errors.ejs") %>
+    <form action="/create" method="POST">
+      <label >First Name: 
+        <input type="text" name="firstName" id="firstName" required>
+      </label>
+      <label >Last Name: 
+        <input type="text" name="lastName" id="lastName" required>
+      </label><br>
+      <label >Email: 
+        <input type="email" name="email" id="email" required>
+      </label>
+      <label >Age: 
+        <input type="number" name="age" id="age" >
+      </label><br>
+      <label >Bio: 
+        <input type="text" minlength="1" maxlength="200" name="bio" id="bio" >
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+    <a href="/">Back to home<a>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> <%= title %> </title>
+</head>
+<body>
+  <h1><%= title %></h1>
+  <form action="/search" method="get">
+    <input type="text" name="email" placeholder="search by email">
+    <button type='submit'>search</button>
+  </form>
+  <a href="/create"><button>create a user</button></a>
+  <ul>
+      <% if(locals.users) {%>
+        <% users.forEach(user => { %>
+          <li>
+            ID: <%= user.id %>, Name: <%= user.firstName %> <%= user.lastName %>      
+            <br>
+            Email: <%= user.email %>, Age: <%= user.age %>
+            <br>
+            Bio: <%= user.bio %>
+            <br>
+            <a href="/<%= user.id %>/update"><button>Update</button></a>
+            <form action="/<%= user.id %>/delete" method="POST" style="display:inline;">
+              <button type="submit" onclick="return confirm('delete?');">Delete</button>
+            </form>
+      </li><br>
+        <% }) %>
+      <% } %>
+  </ul>
+</body>
+</html>
